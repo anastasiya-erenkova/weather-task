@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Тестовое задание - прогноз погоды</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="weather">
+      <h1 class="weather__title">Прогноз погоды в Самаре</h1>
+
+      <div class="weather-slider weather__slider">
+        <div id="weather-slider" class="weather-slider__wrap">
+          <div id="weather-slider__inner" class="weather-slider__inner"></div>
+        </div>
+        <button
+          type="button"
+          class="weather-slider__arrow weather-slider__arrow--prev"
+        ></button>
+        <button
+          type="button"
+          class="weather-slider__arrow weather-slider__arrow--next"
+        ></button>
+      </div>
+    </div>
+
+    <div class="clouds clouds_top">
+      <img src="img/cloud2.png" alt="Cloud" />
+    </div>
+    <div class="clouds clouds_middle">
+      <img src="img/cloud1.png" alt="Cloud" />
+    </div>
+    <div class="clouds clouds_bottom">
+      <img src="img/cloud3.png" alt="Cloud" />
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
