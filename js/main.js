@@ -38,14 +38,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const { list } = data;
 
+    let todayFlag = true;
+    let countItem = 0;
+
     const items = list.filter((item, id) => {
-      if (id == 0) {
-        return item;
-      } else if (
-        item.dt % 43200 == 0 &&
-        new Date(item.dt * 1000).getDate() !== new Date().getDate()
-      ) {
-        return item;
+      if (new Date(item.dt * 1000) >= new Date()) {
+        if (
+          todayFlag &&
+          new Date(item.dt * 1000).getDate() == new Date().getDate()
+        ) {
+          todayFlag = false;
+          countItem++;
+          return item;
+        } else if (
+          countItem < 8 &&
+          item.dt % 43200 == 0 &&
+          new Date(item.dt * 1000).getDate() !== new Date().getDate()
+        ) {
+          countItem++;
+          return item;
+        }
       }
     });
 
@@ -149,8 +161,6 @@ document.addEventListener("DOMContentLoaded", function() {
       currentSlide = i;
     }
 
-    showSlide(0);
-
     weatherDiv.querySelectorAll(".weather-slider__arrow").forEach(item => {
       item.classList.add("is-active");
       item.addEventListener("click", () => {
@@ -183,6 +193,8 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     sliderWidth();
+
+    showSlide(0);
 
     window.addEventListener("resize", () => {
       sliderWidth();

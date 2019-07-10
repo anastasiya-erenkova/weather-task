@@ -54,7 +54,6 @@ button {
   display: block;
   margin: auto;
   position: relative;
-  width: 840px;
   overflow-x: hidden;
 }
 
@@ -136,7 +135,7 @@ button {
 }
 
 .clouds {
-  position: absolute;
+  position: fixed;
   z-index: -100;
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
